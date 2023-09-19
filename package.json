@@ -1,0 +1,42 @@
+{
+  "name": "utilsnft",
+  "version": "1.0.0",
+  "description": "Sample CLI NFT utils demo interaction with IOTA Shimmer Testnet L2 and L1",
+  "main": "main/index.js",
+  "bin": {
+    "utilsnft": "./main/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@iota/sdk": "^1.0.0",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node main/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trungtt1981/utilsnft"
+  },
+  "keywords": [
+    "shimmer",
+    "cli",
+    "nodejs",
+    "stardust",
+    "iota",
+    "sdk",
+    "sample",
+    "nft"
+  ],
+  "author": "Trung Trinh <trungtt1981@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trungtt1981/utilsnft/issues"
+  },
+  "homepage": "https://github.com/trungtt1981/utilsnft#readme"
+}
