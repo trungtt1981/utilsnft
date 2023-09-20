@@ -1,6 +1,6 @@
 {
   "name": "utilsnft",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Sample CLI NFT utils demo interaction with IOTA Shimmer Testnet L2 and L1",
   "main": "main/index.js",
   "bin": {

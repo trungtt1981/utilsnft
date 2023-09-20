@@ -1,14 +1,14 @@
-import "dotenv/config";
 import Web3 from "web3";
-
-export const rpcURL_ShimmerEvmTestnet = process.env.NODE_URL_L2;
-export const CHAIN_ID_L2 = Number(process.env.CHAIN_ID_L2);
-export const EXPLORER_URL_L2 = process.env.EXPLORER_URL_L2;
-export const FAUCET_URL_L2 = process.env.FAUCET_URL_L2;
-export const ADMIN_WALLET_PRIV_KEY_L2 = process.env.ADMIN_WALLET_PRIV_KEY_L2;
+import {
+  NODE_URL_L2,
+  CHAIN_ID_L2,
+  EXPLORER_URL_L2,
+  FAUCET_URL_L2,
+  ADMIN_WALLET_PRIV_KEY_L2,
+} from "../../config/index.js";
 
 const web3_ShimmerEvmTestnet = new Web3(
-  new Web3.providers.HttpProvider(rpcURL_ShimmerEvmTestnet)
+  new Web3.providers.HttpProvider(NODE_URL_L2)
 );
 
 const INTERFACE_ID_ERC1155 = "0xd9b67a26";

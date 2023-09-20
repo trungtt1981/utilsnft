@@ -4,10 +4,12 @@ import {
   privKeyToAccountAddress,
   sendTransaction,
   waitForTxConfirmation,
-  EXPLORER_URL_L2,
   generateAccount,
-  ADMIN_WALLET_PRIV_KEY_L2,
 } from "./common.js";
+import {
+  EXPLORER_URL_L2,
+  ADMIN_WALLET_PRIV_KEY_L2,
+} from "../../config/index.js";
 
 export const deployNFTCollection = async (data) => {
   try {

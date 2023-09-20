@@ -1,5 +1,9 @@
-import "dotenv/config";
 import { utf8ToHex, Wallet } from "@iota/sdk";
+import {
+  STRONGHOLD_PASSWORD,
+  EXPLORER_URL,
+  NODE_URL,
+} from "../config/index.js";
 
 export const mintNftL1 = async (
   receivingAddressL1,
@@ -9,17 +13,27 @@ export const mintNftL1 = async (
   contractAddressL2
 ) => {
   try {
-    const wallet = new Wallet({
-      storagePath: process.env.WALLET_DB_PATH,
-    });
+    const walletOptions = {
+      storagePath: new URL("../example-walletdb", import.meta.url).pathname,
+      clientOptions: {
+        nodes: [NODE_URL],
+      },
+      // coinType: CoinType.Shimmer,
+      secretManager: {
+        stronghold: {
+          snapshotPath: new URL("../example.stronghold", import.meta.url)
+            .pathname,
+          password: STRONGHOLD_PASSWORD,
+        },
+      },
+    };
+
+    const wallet = new Wallet(walletOptions);
 
     const account = await wallet.getAccount("Alice");
 
     // We send from the first address in the account.
     const senderAddress = (await account.addresses())[0].address;
-
-    // We need to unlock stronghold.
-    await wallet.setStrongholdPassword(process.env.STRONGHOLD_PASSWORD);
 
     const params = {
       address: receivingAddressL1,
@@ -51,7 +65,7 @@ export const mintNftL1 = async (
     } catch (err) {}
 
     console.log(
-      `Transaction link: ${process.env.EXPLORER_URL}/transaction/${transaction.transactionId}`
+      `Transaction link: ${EXPLORER_URL}/transaction/${transaction.transactionId}`
     );
 
     // Ensure the account is synced after minting.
